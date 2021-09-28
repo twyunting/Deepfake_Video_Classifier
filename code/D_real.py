@@ -10,8 +10,8 @@ from numpy import asarray
 
 # Read images
 img_real = []
-# path = '/content/drive/MyDrive/American_University/2021_Fall/DATA-793-001_Data Science Practicum/Datasets/manipulated_sequences/Deepfakes/raw/videos/data_test'
-path = '../../Datasets/manipulated_sequences/Deepfakes/raw/videos/data_test'
+# path = '/content/drive/MyDrive/American_University/2021_Fall/DATA-793-001_Data Science Practicum/Datasets/original_sequences/youtube/raw/videos/data_test'
+path = "../../Datasets/original_sequences/youtube/raw/videos/data"
 
 for root, _, files in os.walk(path):
     current_directory_path = os.path.abspath(root)
@@ -40,12 +40,12 @@ def meanSubtraction(arr):
 
 img_real = meanSubtraction(img_real)
 print(len(img_real))
-print(img_real[0])
+# print(img_real[0])
 
 U_real = []
 S_real = []
 V_real = []
-for i in range(2):
+for i in range(len(img_real)):
   [U, S, V] = np.linalg.svd(img_real[i])
   U_real.append(U)
   S_real.append(S)
@@ -53,5 +53,6 @@ for i in range(2):
 U_real = np.array(U_real)
 S_real = np.array(S_real)
 V_real = np.array(V_real)
-print(U_real.shape)
+
+print(U_real.shape, S_real.shape, V_real.shape)
 
