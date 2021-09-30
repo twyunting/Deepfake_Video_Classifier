@@ -1,17 +1,17 @@
 # Install the packages
-# import cv2
+import cv2
 import sys, os
 import glob
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import imageio
+#import imageio
 import numpy as np
 from numpy import asarray
 
 # Read images
 img_real = []
-# path = '/content/drive/MyDrive/American_University/2021_Fall/DATA-793-001_Data Science Practicum/Datasets/original_sequences/youtube/raw/videos/data_test'
-path = "../../Datasets/original_sequences/youtube/raw/videos/data"
+# path = '../data/data_real'
+path = "../data/data_real"
 
 for root, _, files in os.walk(path):
     current_directory_path = os.path.abspath(root)
@@ -19,7 +19,7 @@ for root, _, files in os.walk(path):
         name, ext = os.path.splitext(f)
         if ext == ".jpg":
             current_image_path = os.path.join(current_directory_path, f)
-            current_image = imageio.imread(current_image_path)
+            current_image = cv2.imread(current_image_path)
             img_real.append(current_image)
 img_real = np.array(img_real, dtype=object)
 for img in img_real:

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D_real.py", line 49, in <module>
+    [U, S, V] = np.linalg.svd(img_real[i])
+  File "/app/python3/lib/python3.6/site-packages/numpy/linalg/linalg.py", line 1612, in svd
+    u, s, vh = gufunc(a, signature=signature, extobj=extobj)
+MemoryError
