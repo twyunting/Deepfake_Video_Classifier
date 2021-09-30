@@ -1,0 +1,49 @@
+Sender: LSF System <lsfadmin@cudanode>
+Subject: Job 13905: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> in cluster <auzorrocluster> Exited
+
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 23:56:52 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 23:56:53 2021
+</home/yc6705a> was used as the home directory.
+</home/yc6705a/DATA-793/GitHub/code> was used as the working directory.
+Started at Wed Sep 29 23:56:53 2021
+Terminated at Thu Sep 30 00:00:08 2021
+Results reported at Thu Sep 30 00:00:08 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q gpu
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+/app/python3/bin/python3 D_real.py
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   165.95 sec.
+    Max Memory :                                 76918 MB
+    Average Memory :                             28980.80 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                28
+    Run time :                                   195 sec.
+    Turnaround time :                            196 sec.
+
+The output (if any) follows:
+
+7000
+7000
+
+
+PS:
+
+Read file <13905.err> for stderr output of this job.
+

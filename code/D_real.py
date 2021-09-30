@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 #import imageio
 import numpy as np
 from numpy import asarray
-from scipy import *
+from scipy import linalg
 
 
 # Read images
@@ -26,7 +26,7 @@ for root, _, files in os.walk(path):
 img_real = np.array(img_real, dtype=object)
 #for img in img_real:
   #print(img.shape)
-print(len(img_real))
+print("Total image is {}".format(len(img_real)))
 
 def meanSubtraction(arr):
   new_arr = []
@@ -41,14 +41,14 @@ def meanSubtraction(arr):
   return new_arr
 
 img_real = meanSubtraction(img_real)
-print(len(img_real))
+# print(len(img_real))
 # print(img_real[0])
 
 U_real = []
 S_real = []
 V_real = []
 for i in range(len(img_real)):
-  U, S, V = scipy.linalg.svd(img_real[i])
+  U, S, V = np.linalg.svd(img_real[i], full_matrices=False)
   U_real.append(U)
   S_real.append(S)
   V_real.append(V)
@@ -56,5 +56,18 @@ U_real = np.array(U_real)
 S_real = np.array(S_real)
 V_real = np.array(V_real)
 
-print(U_real.shape, S_real.shape, V_real.shape)
+print("U_real is")
+print(U_real)
+print("S_real is")
+print(S_real)
+print("V_real is")
+print(V_real)
+print("One of the shape in U_real is {}".format(U_real[69]))
+print("One of the shape in S_real is {}".format(S_real[993]))
+print("One of the shape in V_real is {}".format(V_real[500]))
 
+
+"""
+References:
+https://stackoverflow.com/questions/7143723/applying-svd-throws-a-memory-error-instantaneously
+"""

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D_real.py", line 51, in <module>
+    U, S, V = scipy.linalg.svd(img_real[i])
+NameError: name 'scipy' is not defined
