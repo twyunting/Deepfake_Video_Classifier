@@ -1,13 +1,13 @@
 Sender: LSF System <lsfadmin@cudanode>
-Subject: Job 13886: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> in cluster <auzorrocluster> Exited
+Subject: Job 13888: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> in cluster <auzorrocluster> Exited
 
-Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 20:35:48 2021
-Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 20:35:48 2021
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_real.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 21:01:33 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Wed Sep 29 21:01:34 2021
 </home/yc6705a> was used as the home directory.
 </home/yc6705a/DATA-793/GitHub/code> was used as the working directory.
-Started at Wed Sep 29 20:35:48 2021
-Terminated at Wed Sep 29 20:42:48 2021
-Results reported at Wed Sep 29 20:42:48 2021
+Started at Wed Sep 29 21:01:34 2021
+Terminated at Wed Sep 29 21:12:09 2021
+Results reported at Wed Sep 29 21:12:09 2021
 
 Your job looked like:
 
@@ -26,16 +26,16 @@ Exited with exit code 1.
 
 Resource usage summary:
 
-    CPU time :                                   3036.83 sec.
-    Max Memory :                                 123871 MB
-    Average Memory :                             59496.36 MB
+    CPU time :                                   3087.63 sec.
+    Max Memory :                                 124417 MB
+    Average Memory :                             41351.07 MB
     Total Requested Memory :                     -
     Delta Memory :                               -
-    Max Swap :                                   9677 MB
+    Max Swap :                                   8380 MB
     Max Processes :                              4
     Max Threads :                                28
-    Run time :                                   420 sec.
-    Turnaround time :                            420 sec.
+    Run time :                                   635 sec.
+    Turnaround time :                            636 sec.
 
 The output (if any) follows:
 
@@ -7045,5 +7045,5 @@ The output (if any) follows:
 
 PS:
 
-Read file <13886.err> for stderr output of this job.
+Read file <13888.err> for stderr output of this job.
 

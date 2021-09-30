@@ -7,6 +7,8 @@ import matplotlib.image as mpimg
 #import imageio
 import numpy as np
 from numpy import asarray
+from scipy import *
+
 
 # Read images
 img_real = []
@@ -22,8 +24,8 @@ for root, _, files in os.walk(path):
             current_image = cv2.imread(current_image_path)
             img_real.append(current_image)
 img_real = np.array(img_real, dtype=object)
-for img in img_real:
-  print(img.shape)
+#for img in img_real:
+  #print(img.shape)
 print(len(img_real))
 
 def meanSubtraction(arr):
@@ -46,7 +48,7 @@ U_real = []
 S_real = []
 V_real = []
 for i in range(len(img_real)):
-  [U, S, V] = np.linalg.svd(img_real[i])
+  U, S, V = scipy.linalg.svd(img_real[i])
   U_real.append(U)
   S_real.append(S)
   V_real.append(V)
