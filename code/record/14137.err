@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 53, in <module>
+    U, S, V = linalg.svd(img_fake[i], full_matrices=True)
+  File "/app/python3/lib/python3.6/site-packages/scipy/linalg/decomp_svd.py", line 111, in svd
+    raise ValueError('expected matrix')
+ValueError: expected matrix

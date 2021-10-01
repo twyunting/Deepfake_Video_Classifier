@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 53, in <module>
+    U, S, V = np.linalg.svd(img_fake[i], full_matrices=False)
+  File "/app/python3/lib/python3.6/site-packages/numpy/linalg/linalg.py", line 1593, in svd
+    _assertRankAtLeast2(a)
+  File "/app/python3/lib/python3.6/site-packages/numpy/linalg/linalg.py", line 207, in _assertRankAtLeast2
+    'at least two-dimensional' % a.ndim)
+numpy.linalg.LinAlgError: 0-dimensional array given. Array must be at least two-dimensional
