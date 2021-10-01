@@ -9,6 +9,7 @@ import numpy as np
 from numpy import asarray
 from scipy import linalg
 import math
+from numpy import astype
 
 
 # Read images
@@ -34,7 +35,7 @@ def meanSubtraction(arr):
   new_arr = []
   for i in range(len(arr)):
     img = arr[i]
-    img = img.astype(np.float64) # convert from integers to floats
+    img = img.astype(np.float32) # convert from integers to floats
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
     img /= img.std()
