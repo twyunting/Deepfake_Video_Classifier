@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D_real_test.py", line 43, in <module>
+    img_real = meanSubtraction(img_real)
+  File "D_real_test.py", line 35, in meanSubtraction
+    img = img.astype(np.float32) # convert from integers to floats
+AttributeError: 'NoneType' object has no attribute 'astype'

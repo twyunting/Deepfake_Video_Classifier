@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 26, in <module>
+    img_fake = np.array(img_fake, dtype=np.float64)
+ValueError: setting an array element with a sequence.

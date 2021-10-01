@@ -1,0 +1,47 @@
+Sender: LSF System <lsfadmin@cudanode>
+Subject: Job 14092: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_fake.py> in cluster <auzorrocluster> Exited
+
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 D_fake.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Fri Oct  1 13:32:28 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Fri Oct  1 13:32:28 2021
+</home/yc6705a> was used as the home directory.
+</home/yc6705a/DATA-793/GitHub/code> was used as the working directory.
+Started at Fri Oct  1 13:32:28 2021
+Terminated at Fri Oct  1 13:32:31 2021
+Results reported at Fri Oct  1 13:32:31 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q gpu
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+/app/python3/bin/python3 D_fake.py
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   6.56 sec.
+    Max Memory :                                 15 MB
+    Average Memory :                             15.00 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                28
+    Run time :                                   3 sec.
+    Turnaround time :                            3 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <14092.err> for stderr output of this job.
+

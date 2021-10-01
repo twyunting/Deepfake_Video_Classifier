@@ -8,9 +8,7 @@ import matplotlib.image as mpimg
 import numpy as np
 from numpy import asarray
 from scipy import linalg
-import math
-from numpy import astype
-
+from numpy import ndarray
 
 # Read images
 img_fake = []
@@ -35,7 +33,7 @@ def meanSubtraction(arr):
   new_arr = []
   for i in range(len(arr)):
     img = arr[i]
-    img = img.astype(np.float32) # convert from integers to floats
+    img = np.array(img, dtype=np.float32) # convert from integers to floats
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
     img /= img.std()
@@ -44,14 +42,15 @@ def meanSubtraction(arr):
   return new_arr
 
 img_fake = meanSubtraction(img_fake)
-# print(len(img_fake))
-# print(img_fake[0])
+#print(len(img_fake))
+#print(img_fake[0])
+
 
 U_fake = []
 S_fake = []
 V_fake = []
 for i in range(len(img_fake)):
-  U, S, V = np.linalg.svd(img_fake[i], full_matrices=False)
+  U, S, V = np.linalg.svd(img_fake[i], full_matrices=True)
   U_fake.append(U)
   S_fake.append(S)
   V_fake.append(V)
@@ -69,6 +68,7 @@ print("One of the shape in U_fake is {}".format(U_fake[69].shape))
 print("One of the shape in S_fake is {}".format(S_fake[993].shape))
 print("One of the shape in V_fake is {}".format(V_fake[500].shape))
 print(U_fake.dtype, U_fake[100].dtype)
+
 
 """
 References:
