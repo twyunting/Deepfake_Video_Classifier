@@ -62,10 +62,10 @@ print("S_real is")
 print(S_real)
 print("V_real is")
 print(V_real)
-print("One of the shape in U_real is {}".format(U_real[69]))
-print("One of the shape in S_real is {}".format(S_real[993]))
-print("One of the shape in V_real is {}".format(V_real[500]))
-
+print("One of the shape in U_real is {}".format(U_real[69].shape))
+print("One of the shape in S_real is {}".format(S_real[993].shape))
+print("One of the shape in V_real is {}".format(V_real[500].shape))
+print(U_real.dtype, U_real[100].dtype)
 
 """
 References:
