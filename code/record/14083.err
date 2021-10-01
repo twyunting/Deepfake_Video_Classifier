@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 27, in <module>
+    img_fake = np.array(img_fake, dtype=float32)
+NameError: name 'float32' is not defined

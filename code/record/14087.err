@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 45, in <module>
+    img_fake = meanSubtraction(img_fake)
+  File "D_fake.py", line 37, in meanSubtraction
+    img = img.astype(np.unit8) # convert from integers to floats
+AttributeError: module 'numpy' has no attribute 'unit8'
