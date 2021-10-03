@@ -36,6 +36,7 @@ def meanSubtraction(arr):
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
     img /= img.std()
+    #img = [np.round(img, 2) for i in range(len(arr))]
     new_arr.append(img)
   new_arr = np.array(new_arr, dtype=object)
   return new_arr
@@ -47,7 +48,7 @@ img_real = meanSubtraction(img_real)
 U_real = []
 S_real = []
 V_real = []
-for i in range(len(img_real)):
+for i in range(720):
   U, S, V = np.linalg.svd(img_real[i], full_matrices=False)
   U_real.append(U)
   S_real.append(S)
@@ -63,7 +64,7 @@ print(S_real)
 print("V_real is")
 print(V_real)
 print("One of the shape in U_real is {}".format(U_real[69].shape))
-print("One of the shape in S_real is {}".format(S_real[993].shape))
+print("One of the shape in S_real is {}".format(S_real[93].shape))
 print("One of the shape in V_real is {}".format(V_real[500].shape))
 print(U_real.dtype, U_real[100].dtype)
 

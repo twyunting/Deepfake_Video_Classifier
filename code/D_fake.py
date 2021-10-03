@@ -29,14 +29,17 @@ img_fake = np.array(img_fake, dtype=object)
 print("Total image is {}".format(len(img_fake)))
 print(img_fake)
 
+# Training 720 videos. That is, 720x7 images
 def meanSubtraction(arr):
   new_arr = []
   for i in range(len(arr)):
     img = arr[i]
-    img = np.array(img, dtype=np.float32) # convert from integers to floats
+    #img = np.array(img, dtype=np.float32) # convert from integers to floats
+    img = img.astype(np.float32)
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
     img /= img.std()
+    #img = [np.round(img, 2) for i in range(len(arr))]
     new_arr.append(img)
   new_arr = np.array(new_arr, dtype=object)
   return new_arr
@@ -54,8 +57,9 @@ U_fake = np.array([], dtype=np.float32)
 S_fake = np.array([], dtype=np.float32)
 V_fake = np.array([], dtype=np.float32)
 """
-for i in range(3):
-  U, S, V = np.linalg.svd(img_fake[i], full_matrices=True)
+
+for i in range(720):
+  U, S, V = np.linalg.svd(img_fake[i], full_matrices=False)
   U_fake.append(U)
   S_fake.append(S)
   V_fake.append(V)
