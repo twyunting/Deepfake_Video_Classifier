@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 58, in <module>
+    U, S, V = np.linalg.svd(img_fake[i], full_matrices=True)
+ValueError: too many values to unpack (expected 3)

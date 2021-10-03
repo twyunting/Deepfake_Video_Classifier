@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D_fake.py", line 44, in <module>
+    img_fake = meanSubtraction(img_fake)
+  File "D_fake.py", line 39, in meanSubtraction
+    img /= img.std()
+  File "/app/python3/lib/python3.6/site-packages/numpy/core/_methods.py", line 140, in _std
+    keepdims=keepdims)
+  File "/app/python3/lib/python3.6/site-packages/numpy/core/_methods.py", line 117, in _var
+    x = asanyarray(arr - arrmean)
+MemoryError

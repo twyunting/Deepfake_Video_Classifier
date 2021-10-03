@@ -49,7 +49,12 @@ img_fake = meanSubtraction(img_fake)
 U_fake = []
 S_fake = []
 V_fake = []
-for i in range(len(img_fake)):
+"""
+U_fake = np.array([], dtype=np.float32)
+S_fake = np.array([], dtype=np.float32)
+V_fake = np.array([], dtype=np.float32)
+"""
+for i in range(3):
   U, S, V = np.linalg.svd(img_fake[i], full_matrices=True)
   U_fake.append(U)
   S_fake.append(S)
@@ -64,10 +69,10 @@ print("S_fake is")
 print(S_fake)
 print("V_fake is")
 print(V_fake)
-print("One of the shape in U_fake is {}".format(U_fake[69].shape))
-print("One of the shape in S_fake is {}".format(S_fake[993].shape))
-print("One of the shape in V_fake is {}".format(V_fake[500].shape))
-print(U_fake.dtype, U_fake[100].dtype)
+print("One of the shape in U_fake is {}".format(U_fake[0].shape))
+print("One of the shape in S_fake is {}".format(S_fake[1].shape))
+print("One of the shape in V_fake is {}".format(V_fake[1].shape))
+print(U_fake.dtype, U_fake[2].dtype)
 
 
 """
