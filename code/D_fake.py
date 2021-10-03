@@ -9,6 +9,7 @@ import numpy as np
 from numpy import asarray
 from scipy import linalg
 from numpy import ndarray
+#import imageio
 
 # Read images
 img_fake = []
@@ -39,7 +40,7 @@ def meanSubtraction(arr):
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
     #img /= img.std()
-    img = [np.round(img, 2) for i in range(len(arr))]
+    #img = [np.round(img, 2) for i in range(len(arr))]
     new_arr.append(img)
   new_arr = np.array(new_arr, dtype=object)
   return new_arr
@@ -58,8 +59,8 @@ S_fake = np.array([], dtype=np.float32)
 V_fake = np.array([], dtype=np.float32)
 """
 
-for i in range(10):
-  U, S, V = np.linalg.svd(img_fake[i], full_matrices=True)
+for i in range(720):
+  U, S, V = np.linalg.svd(img_fake[i], full_matrices=False)
   U_fake.append(U)
   S_fake.append(S)
   V_fake.append(V)
