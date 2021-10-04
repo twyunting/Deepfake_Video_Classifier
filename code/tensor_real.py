@@ -9,13 +9,10 @@ import numpy as np
 from numpy import asarray
 from scipy import linalg
 import torch
-import D_real # read D_real.py
+import D_real as D # read D_real.py
 
 print(torch.__version__)
 
-path = "../data/data_real"
-
-print("Total image is {}".format(len(img_real)))
 
 # Read images
 img_real = []
@@ -35,5 +32,5 @@ img_real = np.array(img_real, dtype=object)
   #print(img.shape)
 print("Total image is {}".format(len(img_real)))
 
-img_real = meanSubtraction(img_real)
-print(svdTraining(img_real))
+img_real = D.meanSubtraction(img_real)
+print(D.svdTraining(img_real))
