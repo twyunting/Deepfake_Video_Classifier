@@ -8,7 +8,7 @@ import matplotlib.image as mpimg
 import numpy as np
 from numpy import asarray
 from scipy import linalg
-
+import torch
 
 # Read images
 img_real = []
@@ -35,7 +35,7 @@ def meanSubtraction(arr):
     img = img.astype(np.float32) # convert from integers to floats
     mean = img.mean() # calculate global mean
     img = img - mean # centering of pixels
-    img /= img.std()
+    #img /= img.std()
     #img = [np.round(img, 2) for i in range(len(arr))]
     new_arr.append(img)
   new_arr = np.array(new_arr, dtype=object)
@@ -67,6 +67,12 @@ print("One of the shape in U_real is {}".format(U_real[69].shape))
 print("One of the shape in S_real is {}".format(S_real[93].shape))
 print("One of the shape in V_real is {}".format(V_real[500].shape))
 print(U_real.dtype, U_real[100].dtype)
+
+print("--------------tensor---------------------")
+
+D_real_torch = torch.from_numpy(U_real, S_real)
+print("The torch shape is {}".format(D_real_torch.shape))
+print(D_real_torch.shape)
 
 """
 References:
