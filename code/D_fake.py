@@ -49,7 +49,22 @@ img_fake = meanSubtraction(img_fake)
 #print(len(img_fake))
 #print(img_fake[0])
 
+############################################################
+def svdTraining(arr):
+  U_real = []
+  S_real = []
+  V_real = []
+  for i in range(720):
+    U, S, V = np.linalg.svd(arr[i], full_matrices=False)
+    U_real.append(U)
+    S_real.append(S)
+    V_real.append(V)
+  U_real = np.array(U_real)
+  S_real = np.array(S_real)
+  V_real = np.array(V_real)
+  return (U_real, S_real, V_real)
 
+############################################################
 U_fake = []
 S_fake = []
 V_fake = []

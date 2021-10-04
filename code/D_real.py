@@ -45,6 +45,22 @@ img_real = meanSubtraction(img_real)
 # print(len(img_real))
 # print(img_real[0])
 
+############################################################
+def svdTraining(arr):
+  U_real = []
+  S_real = []
+  V_real = []
+  for i in range(720):
+    U, S, V = np.linalg.svd(arr[i], full_matrices=False)
+    U_real.append(U)
+    S_real.append(S)
+    V_real.append(V)
+  U_real = np.array(U_real)
+  S_real = np.array(S_real)
+  V_real = np.array(V_real)
+  return (U_real, S_real, V_real)
+############################################################
+
 U_real = []
 S_real = []
 V_real = []
@@ -69,11 +85,11 @@ print("One of the shape in V_real is {}".format(V_real[500].shape))
 print(U_real.dtype, U_real[100].dtype)
 
 print("--------------tensor---------------------")
-
+"""
 D_real_torch = torch.from_numpy(U_real, S_real)
 print("The torch shape is {}".format(D_real_torch.shape))
 print(D_real_torch.shape)
-
+"""
 """
 References:
 https://stackoverflow.com/questions/7143723/applying-svd-throws-a-memory-error-instantaneously
