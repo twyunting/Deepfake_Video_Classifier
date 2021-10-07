@@ -3,4 +3,4 @@
 #BSUB -o %J.out
 #BSUB -e %J.err
 
-/app/python3/bin/python3 tensor_real.py
+/app/python3/bin/python3 functions.py
