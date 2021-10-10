@@ -55,7 +55,7 @@ def svdTraining(arr):
     U_arr = np.array(U_arr)
     S_arr = np.array(S_arr)
     V_arr = np.array(V_arr)
-    return (U_arr, S_arr, V_arr)
+    return U_arr, S_arr, V_arr
 
 
 def svdVaildation(arr):
@@ -70,7 +70,7 @@ def svdVaildation(arr):
     U_arr = np.array(U_arr)
     S_arr = np.array(S_arr)
     V_arr = np.array(V_arr)
-    return (U_arr, S_arr, V_arr)
+    return U_arr, S_arr, V_arr
 
 def svdTesting(arr):
     U_arr = []
@@ -84,4 +84,4 @@ def svdTesting(arr):
     U_arr = np.array(U_arr)
     S_arr = np.array(S_arr)
     V_arr = np.array(V_arr)
-    return (U_arr, S_arr, V_arr)
+    return U_arr, S_arr, V_arr
