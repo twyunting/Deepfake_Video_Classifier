@@ -1,6 +1,0 @@
-#!/bin/bash
-#BSUB -q gpu
-#BSUB -o %J.out
-#BSUB -e %J.err
-
-/app/python3/bin/python3 Next_Permutation.py
