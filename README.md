@@ -1,3 +1,6 @@
 # Deepfake Video Classifier
 
-1. The main goal of this repository is to replicate the [Deepfake Representation with Multilinear Regression](https://arxiv.org/abs/2108.06702) paper.
+## Motivation
+Videos may fool people nowadays and they are causing trouble. This is due to a technology called DeepFake. Deepfake is a technique that makes computer-created artificial videos in which images are combined to create new footage. Recently, Deefake technique has been widely discussed in Taiwan since a famous Taiwanese YouTuber was discovered to be responsible for producing, selling, and circulating Deepfake porn videos of women, mostly public figures. Based on this, techniques for solving this kind of problem have been in high demand because more and more relevant issues about misuse of Deepfake technique will be extensively expanded in the future. I have relevant experience in building a machine learning model to determine whether the input video is fake or real. Moreover, I am working on a computer vision project that analyzes deepfake videos as part of my capstone project. As a result, I feel the need to apply my pertinent academic background to this project so that this model can be tested and even improved. The main goal of the project is to assist people in determining whether a given video was generated using the Deepfake technique or a real video by using the model that I have created.
+
+
