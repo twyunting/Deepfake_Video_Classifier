@@ -12,6 +12,8 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+import os
+os.system('pip install --upgrade scikit-learn')
 
 # Commented out IPython magic to ensure Python compatibility.
 #wd
@@ -65,7 +67,7 @@ from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler # standardize features by removing the mean and scaling to unit variance.
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import plot_confusion_matrix
+#from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestClassifier
@@ -87,9 +89,9 @@ print(confusion_matrix(y_test, y_pred))
 
 """
 
-plot_confusion_matrix(svm_clf, X_test, y_test, values_format = '.0f') 
-plt.figure(figsize=(12,8))
-plt.show()
+#plot_confusion_matrix(svm_clf, X_test, y_test, values_format = '.0f') 
+#plt.figure(figsize=(12,8))
+#plt.show()
 
 """### SVM Accuracy Score"""
 
