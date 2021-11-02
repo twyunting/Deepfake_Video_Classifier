@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 import os
-os.system('pip install --upgrade scikit-learn')
 
 # Commented out IPython magic to ensure Python compatibility.
 #wd
