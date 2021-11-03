@@ -81,7 +81,7 @@ plt.savefig('count_type.png')
 """## Random Forest Classifier"""
 
 start_time = time.time()
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42) # 80% for training, 20 for of testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42) # 75% for training, 25% for of testing
 rf_clf = RandomForestClassifier(n_estimators=100, random_state=42, bootstrap=True)
 rf_clf.fit(X_train, y_train)
 y_pred = rf_clf.predict(X_test)

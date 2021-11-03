@@ -1,0 +1,83 @@
+Sender: LSF System <lsfadmin@cudanode>
+Subject: Job 16314: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 05.HPC_machine_learning_tasks.py> in cluster <auzorrocluster> Done
+
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 05.HPC_machine_learning_tasks.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Tue Nov  2 10:53:54 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Tue Nov  2 10:53:55 2021
+</home/yc6705a> was used as the home directory.
+</home/yc6705a/Capstone/GitHub/data> was used as the working directory.
+Started at Tue Nov  2 10:53:55 2021
+Terminated at Tue Nov  2 23:11:11 2021
+Results reported at Tue Nov  2 23:11:11 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q gpu
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+/app/python3/bin/python3 05.HPC_machine_learning_tasks.py
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   44239.13 sec.
+    Max Memory :                                 59492 MB
+    Average Memory :                             28177.21 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   1706 MB
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   44235 sec.
+    Turnaround time :                            44237 sec.
+
+The output (if any) follows:
+
+Collecting scikit-learn
+  Using cached https://files.pythonhosted.org/packages/31/9f/042db462417451e81035c3d43b722e88450c628a33dfda69777a801b0d40/scikit_learn-0.20.4-cp27-cp27mu-manylinux1_x86_64.whl
+Collecting scipy>=0.13.3 (from scikit-learn)
+  Using cached https://files.pythonhosted.org/packages/24/40/11b12af7f322c1e20446c037c47344d89bab4922b8859419d82cf56d796d/scipy-1.2.3-cp27-cp27mu-manylinux1_x86_64.whl
+Collecting numpy>=1.8.2 (from scikit-learn)
+  Using cached https://files.pythonhosted.org/packages/3a/5f/47e578b3ae79e2624e205445ab77a1848acdaa2929a00eeef6b16eaaeb20/numpy-1.16.6-cp27-cp27mu-manylinux1_x86_64.whl
+Installing collected packages: numpy, scipy, scikit-learn
+arr_0
+[[array([134, 131, 116, ...,  68,  60,  71], dtype=uint8) 'fake']
+ [array([133, 130, 115, ...,  71,  59,  71], dtype=uint8) 'fake']
+ [array([117, 113, 112, ...,  43,  31,  45], dtype=uint8) 'fake']
+ ...
+ [array([ 33,  20,  66, ..., 188, 155, 172], dtype=uint8) 'real']
+ [array([ 51,  28,  46, ..., 116,  52,  50], dtype=uint8) 'real']
+ [array([174, 140, 102, ...,  23,  39,  98], dtype=uint8) 'real']]
+(13984, 2)
+13984
+13984
+The length should be 13984
+--- 43659.466131687164 seconds ---
+[[1405  351]
+ [ 182 1558]]
+0.8475400457665904
+              precision    recall  f1-score   support
+
+        fake       0.89      0.80      0.84      1756
+        real       0.82      0.90      0.85      1740
+
+    accuracy                           0.85      3496
+   macro avg       0.85      0.85      0.85      3496
+weighted avg       0.85      0.85      0.85      3496
+
+--- 468.6344940662384 seconds ---
+[[1445  311]
+ [ 208 1532]]
+0.8515446224256293
+
+
+PS:
+
+Read file <16314.err> for stderr output of this job.
+

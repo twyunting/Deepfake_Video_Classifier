@@ -83,7 +83,7 @@ plt.savefig('count_type.png')
 
 start_time = time.time()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42) # 80% for training, 20 for of testing
-svm_clf = make_pipeline(StandardScaler(), SVC(gamma='auto', C = 1)) # clf = classifer
+svm_clf = make_pipeline(StandardScaler(), SVC(gamma='scale', C = 1)) # clf = classifer
 svm_clf.fit(X_train, y_train)
 y_pred = svm_clf.predict(X_test)
 
@@ -109,7 +109,7 @@ plt.xlabel('Predictions', fontsize=18)
 plt.ylabel('Actuals', fontsize=18)
 plt.title('Confusion Matrix', fontsize=18)
 plt.show()
-plt.savefig('Confusion_Matrix.png')
+plt.savefig('confusion_matrix.png')
 
 
 ### SVM Accuracy Score
