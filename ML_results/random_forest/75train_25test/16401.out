@@ -1,0 +1,74 @@
+Sender: LSF System <lsfadmin@cudanode>
+Subject: Job 16401: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 08.rf_75_25.py> in cluster <auzorrocluster> Done
+
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 08.rf_75_25.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Wed Nov  3 02:49:28 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Wed Nov  3 02:49:29 2021
+</home/yc6705a> was used as the home directory.
+</home/yc6705a/Capstone/GitHub/data> was used as the working directory.
+Started at Wed Nov  3 02:49:29 2021
+Terminated at Wed Nov  3 02:58:54 2021
+Results reported at Wed Nov  3 02:58:54 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q gpu
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+/app/python3/bin/python3 08.rf_75_25.py
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   568.32 sec.
+    Max Memory :                                 16497 MB
+    Average Memory :                             14328.79 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   565 sec.
+    Turnaround time :                            566 sec.
+
+The output (if any) follows:
+
+arr_0
+[[array([134, 131, 116, ...,  68,  60,  71], dtype=uint8) 'fake']
+ [array([133, 130, 115, ...,  71,  59,  71], dtype=uint8) 'fake']
+ [array([117, 113, 112, ...,  43,  31,  45], dtype=uint8) 'fake']
+ ...
+ [array([ 33,  20,  66, ..., 188, 155, 172], dtype=uint8) 'real']
+ [array([ 51,  28,  46, ..., 116,  52,  50], dtype=uint8) 'real']
+ [array([174, 140, 102, ...,  23,  39,  98], dtype=uint8) 'real']]
+13984
+13984
+The length should be 13984
+data dimension: (13984, 2)
+--- 497.132826089859 seconds ---
+----------Confusion Matrix----------------
+[[1445  311]
+ [ 208 1532]]
+----------Accuracy Score----------------
+0.8515446224256293
+              precision    recall  f1-score   support
+
+        fake       0.87      0.82      0.85      1756
+        real       0.83      0.88      0.86      1740
+
+    accuracy                           0.85      3496
+   macro avg       0.85      0.85      0.85      3496
+weighted avg       0.85      0.85      0.85      3496
+
+
+
+PS:
+
+Read file <16401.err> for stderr output of this job.
+
