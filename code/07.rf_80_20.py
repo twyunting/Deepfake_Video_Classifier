@@ -47,8 +47,8 @@ y = []
 for i in data:
   X.append(i[0])
   y.append(i[1])
-print(len(X))
-print(len(y))
+print("The length of X feature is", len(X[1]))
+
 print("The length should be " + str((6984+7000)))
 print("data dimension:",data.shape)
 
@@ -71,7 +71,7 @@ fig = plt.figure()
 plt.bar(df['image_type'], df['count'])
 plt.xlabel("Image Type")
 plt.ylabel("Count")
-plt.savefig('count_type.png')
+plt.savefig('07.count_type.png')
 
 """# Machine Learning Task
 
@@ -108,7 +108,7 @@ plt.xlabel('Predictions', fontsize=18)
 plt.ylabel('Actuals', fontsize=18)
 plt.title('Confusion Matrix', fontsize=18)
 plt.show()
-plt.savefig('confusion_matrix.png')
+plt.savefig('07.confusion_matrix.png')
 
 
 ### RF Accuracy Score
@@ -116,5 +116,6 @@ plt.savefig('confusion_matrix.png')
 print("----------Accuracy Score----------------")
 print(accuracy_score(y_test, y_pred))
 
+print("------------Classification Report----------")
 target_names = ['fake', 'real']
 print(classification_report(y_test, y_pred, target_names=target_names))
