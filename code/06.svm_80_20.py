@@ -50,7 +50,6 @@ for i in data:
 #print(len(X))
 #print(len(y))
 print("The length of X feature is", len(X[1]))
-print("The length of y label is", len(y[1]))
 print("The length should be " + str((6984+7000)))
 print("data dimension:",data.shape)
 
@@ -85,7 +84,7 @@ plt.savefig('06.count_type.png')
 
 start_time = time.time()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42) # 80% for training, 20 for of testing
-svm_clf = make_pipeline(StandardScaler(), SVC(gamma='scale', C = 0.01)) # clf = classifer, c = aloow how many data points to another margin
+svm_clf = make_pipeline(StandardScaler(), SVC(gamma='scale', C = 1)) # clf = classifer, c = aloow how many data points to another margin
 svm_clf.fit(X_train, y_train)
 y_pred = svm_clf.predict(X_test)
 
