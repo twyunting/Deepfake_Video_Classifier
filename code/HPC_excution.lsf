@@ -3,4 +3,4 @@
 #BSUB -o %J.out
 #BSUB -e %J.err
 
-/app/python3/bin/python3 07.rf_80_20.py
+/app/python3/bin/python3 09.logr_80_20.py

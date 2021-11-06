@@ -1,0 +1,74 @@
+Sender: LSF System <lsfadmin@cudanode>
+Subject: Job 16548: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 09.logr_80_20.py> in cluster <auzorrocluster> Done
+
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 09.logr_80_20.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Fri Nov  5 18:14:51 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Fri Nov  5 18:14:52 2021
+</home/yc6705a> was used as the home directory.
+</home/yc6705a/Capstone/GitHub/data> was used as the working directory.
+Started at Fri Nov  5 18:14:52 2021
+Terminated at Sat Nov  6 17:03:33 2021
+Results reported at Sat Nov  6 17:03:33 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -q gpu
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+/app/python3/bin/python3 09.logr_80_20.py
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   95302.73 sec.
+    Max Memory :                                 82687 MB
+    Average Memory :                             82564.51 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   82117 sec.
+    Turnaround time :                            82122 sec.
+
+The output (if any) follows:
+
+arr_0
+[[array([134, 131, 116, ...,  68,  60,  71], dtype=uint8) 'fake']
+ [array([133, 130, 115, ...,  71,  59,  71], dtype=uint8) 'fake']
+ [array([117, 113, 112, ...,  43,  31,  45], dtype=uint8) 'fake']
+ ...
+ [array([ 33,  20,  66, ..., 188, 155, 172], dtype=uint8) 'real']
+ [array([ 51,  28,  46, ..., 116,  52,  50], dtype=uint8) 'real']
+ [array([174, 140, 102, ...,  23,  39,  98], dtype=uint8) 'real']]
+The length of X feature is 307200
+The length should be 13984
+data dimension: (13984, 2)
+--- 82037.26874637604 seconds ---
+----------Confusion Matrix----------------
+[[961 454]
+ [522 860]]
+----------Accuracy Score----------------
+0.6510547014658563
+------------Classification Report----------
+              precision    recall  f1-score   support
+
+        fake       0.65      0.68      0.66      1415
+        real       0.65      0.62      0.64      1382
+
+    accuracy                           0.65      2797
+   macro avg       0.65      0.65      0.65      2797
+weighted avg       0.65      0.65      0.65      2797
+
+
+
+PS:
+
+Read file <16548.err> for stderr output of this job.
+
