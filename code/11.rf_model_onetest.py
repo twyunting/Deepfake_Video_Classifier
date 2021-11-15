@@ -78,7 +78,7 @@ rf_clf = RandomForestClassifier(random_state=42, bootstrap=True)
 space = {}
 #space['n_estimators'] = list(range(1, 10000, 500))
 #space['n_estimators'] = [100, 500, 800, 1000, 1500, 2000, 3500, 5000]
-space['n_estimators'] = [500, 300, 5000, 10000]
+space['n_estimators'] = [500, 3000, 5000, 10000]
 
 # define search
 search = GridSearchCV(rf_clf, space, scoring='accuracy', n_jobs=1, cv=5, refit=True)

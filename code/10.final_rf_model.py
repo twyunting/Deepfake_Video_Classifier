@@ -77,17 +77,17 @@ start_time = time.time()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42) # 80% for training, 20 for of testing
 
 ### Cross vaildation procedure and define a classifier
-#cv_inner = KFold(n_splits=10, shuffle=True, random_state=100)
+#cv_inner = KFold(n_splits=5, shuffle=True, random_state=100)
 rf_clf = RandomForestClassifier(random_state=42, bootstrap=True)
 
 # define search space
 # n_estimators: The number of trees in the forest.
 space = {}
 #space['n_estimators'] = list(range(1, 10000, 500))
-space['n_estimators'] = [100, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 10000]
+space['n_estimators'] = [500, 1000, 2000]
 
 # define search
-search = GridSearchCV(rf_clf, space, scoring='accuracy', n_jobs=1, cv=5)
+search = GridSearchCV(rf_clf, space, scoring='accuracy', n_jobs=1, cv=3)
 result = search.fit(X_train, y_train)
 print(search.best_params_)
 best_model = result.best_estimator_
