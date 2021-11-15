@@ -1,13 +1,13 @@
 Sender: LSF System <lsfadmin@cudanode>
-Subject: Job 16907: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 10.final_rf_model.py> in cluster <auzorrocluster> Done
+Subject: Job 16917: <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 10.final_rf_model.py> in cluster <auzorrocluster> Done
 
-Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 10.final_rf_model.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Sat Nov 13 09:54:29 2021
-Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Sat Nov 13 09:54:29 2021
+Job <#!/bin/bash;#BSUB -q gpu;#BSUB -o %J.out;#BSUB -e %J.err; /app/python3/bin/python3 10.final_rf_model.py> was submitted from host <zorro> by user <yc6705a> in cluster <auzorrocluster> at Sun Nov 14 19:16:50 2021
+Job was executed on host(s) <cudanode>, in queue <gpu>, as user <yc6705a> in cluster <auzorrocluster> at Sun Nov 14 19:16:50 2021
 </home/yc6705a> was used as the home directory.
 </home/yc6705a/Capstone/GitHub/data> was used as the working directory.
-Started at Sat Nov 13 09:54:29 2021
-Terminated at Sat Nov 13 12:08:44 2021
-Results reported at Sat Nov 13 12:08:44 2021
+Started at Sun Nov 14 19:16:50 2021
+Terminated at Mon Nov 15 07:47:37 2021
+Results reported at Mon Nov 15 07:47:37 2021
 
 Your job looked like:
 
@@ -26,16 +26,16 @@ Successfully completed.
 
 Resource usage summary:
 
-    CPU time :                                   8065.65 sec.
-    Max Memory :                                 17368 MB
-    Average Memory :                             14168.07 MB
+    CPU time :                                   45012.19 sec.
+    Max Memory :                                 16800 MB
+    Average Memory :                             13219.51 MB
     Total Requested Memory :                     -
     Delta Memory :                               -
-    Max Swap :                                   -
+    Max Swap :                                   2145 MB
     Max Processes :                              5
     Max Threads :                                29
-    Run time :                                   8055 sec.
-    Turnaround time :                            8055 sec.
+    Run time :                                   45045 sec.
+    Turnaround time :                            45047 sec.
 
 The output (if any) follows:
 
@@ -50,33 +50,33 @@ arr_0
 The length of X feature is 307200
 The length should be 13984
 data dimension: (13984, 2)
-{'n_estimators': 500}
+{'n_estimators': 2000}
 Best Model: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
                        max_depth=None, max_features='auto', max_leaf_nodes=None,
                        min_impurity_decrease=0.0, min_impurity_split=None,
                        min_samples_leaf=1, min_samples_split=2,
-                       min_weight_fraction_leaf=0.0, n_estimators=500,
+                       min_weight_fraction_leaf=0.0, n_estimators=2000,
                        n_jobs=None, oob_score=False, random_state=42, verbose=0,
                        warm_start=False)
---- 7986.989168167114 seconds ---
+--- 44971.41436100006 seconds ---
 ----------Confusion Matrix----------------
-[[1151  264]
- [ 118 1264]]
+[[1158  257]
+ [ 113 1269]]
 ----------Accuracy Score----------------
-0.8634250983196282
+0.8677154093671792
 ------------Classification Report----------
               precision    recall  f1-score   support
 
-        fake       0.91      0.81      0.86      1415
-        real       0.83      0.91      0.87      1382
+        fake       0.91      0.82      0.86      1415
+        real       0.83      0.92      0.87      1382
 
-    accuracy                           0.86      2797
-   macro avg       0.87      0.86      0.86      2797
-weighted avg       0.87      0.86      0.86      2797
+    accuracy                           0.87      2797
+   macro avg       0.87      0.87      0.87      2797
+weighted avg       0.87      0.87      0.87      2797
 
 
 
 PS:
 
-Read file <16907.err> for stderr output of this job.
+Read file <16917.err> for stderr output of this job.
 
