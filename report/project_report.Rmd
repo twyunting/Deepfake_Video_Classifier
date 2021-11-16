@@ -76,7 +76,7 @@ I try to reduce the number of observations to run on my local computer in order 
 
 ## High Performance Computing
 
-High performance computing (HPC) is the ability to process data and perform complex calculations at high speeds. Because I am working with large data sets, my computer is unable to excute machine tasks with large features. The all following `.py` files are running on HPC.
+High performance computing (HPC) is the ability to process data and perform complex calculations at high speeds. Because I am working with large data sets, my computer is unable to execute machine tasks. The all following `.py` files are running on HPC.
 
 ## Model Selection
 There are many machine models that excel at classification tasks, such as LDA, QDA, and logistic regression. However, the number of data features is much larger, exceeding 300,000. It is hard to visualize the relationship between each feature, not to mention assume the data points are following linear or quadric relationship so LDA and QDA are not wise choices. Furthermore, logistic regression is overly sensitive to training set proportions, so if you slightly change the proportion of training set, the outcome will be completely different.
@@ -88,7 +88,7 @@ How about dimensionally reduce the number of features? Ridge and Lasso regressio
 I believe **random forest model** is a suitable model for the data. Firstly, it can handle large features efficiently. The random forest algorithm outperforms the decision tree algorithm in terms of accuracy in predicting outcomes. Secondly, it is not necessary to normalize data points before I run the model. Thirdly, when compared to SVM and logistic regression, it can drastically reduce computation time. I will demonstrate this in the experimental results session.
 
 # Computing Environment
-## Required Programming
+## Required Programming Language
 - At least Python 3.6.9
 
 ## Coumputer Specification and Google Colab
@@ -96,6 +96,11 @@ I use Google Colab free version to run all Python notebook files. My computer is
 
 ## High Performance Computing
 I use HPC to run all Python script files through [`@zorro.american.edu`](https://www.american.edu/cas/hpc/) with my American University personal account.
+
+# Experimental Results
+## 
+
+
 
 # References
 1. Rossler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M. (2019). Faceforensics++: Learning to detect manipulated facial images. In *Proceedings of the IEEE/CVF International Conference on Computer Vision* (pp. 1-11).
