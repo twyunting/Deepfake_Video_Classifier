@@ -56,9 +56,13 @@ However, how do we deal with images in which the face shape is unclear? Based on
 
 ![](pics/3-3.1.png)
 
+![](pics/3-3.11.png)
+
 ### Real Image Examples
 
 ![](pics/3-3.2.png)
+
+![](pics/3-3.21.png)
 
 ### Data Generating Process
 
@@ -98,7 +102,15 @@ I use Google Colab free version to run all Python notebook files. My computer is
 I use HPC to run all Python script files through [`@zorro.american.edu`](https://www.american.edu/cas/hpc/) with my American University personal account.
 
 # Experimental Results
-## 
+## Data Visualization
+### Distribution
+
+There are 13984 observations, which include 6984 fake rows and 7000 real rows.
+
+![](pics/5-1.png)
+
+## SVM (80% Training & 20 % Testing)
+
 
 
 
