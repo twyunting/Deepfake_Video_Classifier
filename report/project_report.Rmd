@@ -103,16 +103,189 @@ I use HPC to run all Python script files through [`@zorro.american.edu`](https:/
 
 # Experimental Results
 ## Data Visualization
-### Distribution
 
 There are 13984 observations, which include 6984 fake rows and 7000 real rows.
 
 ![](pics/5-1.png)
 
-## SVM (80% Training & 20 % Testing)
+## SVM (80% Training & 20 % Testing, C = 1)
+- Accuracy Score: 0.85305684662138
+- Source code: [`06.svm_80_20.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/06.svm_80_20.py)
+
+The accuracy score is 85.31%, which is great. Running the code, on the other hand, takes more than 12 hours.
+
+### HPC Usage Summary
+
+    CPU time :                                   43616.16 sec.
+    Max Memory :                                 63202 MB
+    Average Memory :                             30266.94 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   43579 sec.
+    Turnaround time :                            43581 sec.
+
+### Confusion Matrix
+- 0 represents fake, and 1 represents real
+
+![](pics/svm1_cm.png)
+
+### Classification Report
 
 
+                  precision    recall  f1-score   support
 
+            fake       0.89      0.81      0.85      1415
+            real       0.82      0.90      0.86      1382
+    
+        accuracy                           0.85      2797
+       macro avg       0.86      0.85      0.85      2797
+    weighted avg       0.86      0.85      0.85      2797
+    
+## SVM (80% Training & 20 % Testing, C = 0.01)
+- Accuracy Score: 0.5716839470861638
+- Source code: [`06.svm_80_20.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/06.svm_80_20.py)
+
+In Python's sklearn module, the regularization parameter (also known as the $C$ parameter) tells the SVM optimization how much you want to prevent misclassifying each training example. A small value of $C$ will cause the optimizer to look for a larger-margin separating hyperplane, even if that hyperplane misclassifies more points. After lowing $C$ value to 0.01, the accuracy score drops to 57.17%. Especially, the precision score drops to 54%, meaning that the model basically is unable to classify the real videos.
+
+### HPC Usage Summary
+
+    CPU time :                                   58828.59 sec.
+    Max Memory :                                 62074 MB
+    Average Memory :                             31843.03 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   58768 sec.
+    Turnaround time :                            58769 sec.
+
+### Confusion Matrix
+- 0 represents fake, and 1 represents real
+
+![](pics/svm0.01_cm.png)
+
+### Classification Report
+
+                  precision    recall  f1-score   support
+
+            fake       0.81      0.20      0.32      1415
+            real       0.54      0.95      0.69      1382
+    
+        accuracy                           0.57      2797
+       macro avg       0.67      0.58      0.50      2797
+    weighted avg       0.68      0.57      0.50      2797
+
+## Logistic Regression (80% Training & 20 % Testing)    
+- Accuracy Score: 0.6510547014658563
+- Source code: [`09.logr_80_20.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/09.logr_80_20.py)
+
+The computation time is terrible if logistic regression deal with a larger number of features. Moreover, the accuracy does not performs well, meaning that logistic regression is not a good classifier for the task.
+
+### HPC Usage Summary
+
+    CPU time :                                   95302.73 sec.
+    Max Memory :                                 82687 MB
+    Average Memory :                             82564.51 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   82117 sec.
+    Turnaround time :                            82122 sec.
+    
+### Confusion Matrix
+- 0 represents fake, and 1 represents real
+
+![](pics/logr_cm.png)
+
+### Classification Report
+
+                  precision    recall  f1-score   support
+
+            fake       0.65      0.68      0.66      1415
+            real       0.65      0.62      0.64      1382
+
+        accuracy                           0.65      2797
+       macro avg       0.65      0.65      0.65      2797
+    weighted avg       0.65      0.65      0.65      2797
+
+## Random Forest (80% Training & 20 % Testing)
+- Accuracy Score: 0.8562745799070433
+- Source code: [`07.rf_80_20.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/07.rf_80_20.py)
+
+Wow! Random forest model provides 85.63% accuracy, and it just takes 10 minutes to complete the computation. Also, the recall score is pretty well, meaning that the model has 90 % can correctly classify the fake video. 
+
+### HPC Usage Summary
+
+    CPU time :                                   579.28 sec.
+    Max Memory :                                 17317 MB
+    Average Memory :                             15481.17 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   576 sec.
+    Turnaround time :                            576 sec.
+
+### Confusion Matrix
+- 0 represents fake, and 1 represents real
+
+![](pics/rf8020_cm.png)
+
+### Classification Report
+
+                  precision    recall  f1-score   support
+
+            fake       0.90      0.81      0.85      1415
+            real       0.82      0.90      0.86      1382
+
+        accuracy                           0.86      2797
+       macro avg       0.86      0.86      0.86      2797
+    weighted avg       0.86      0.86      0.86      2797
+
+## Random Forest (75% Training & 25 % Testing)
+- Accuracy Score: 0.8515446224256293
+- Source code: [`08.rf_75_25.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/08.rf_75_25.py)
+
+If I just slightly split data to 75% traing and 25% testing. The data below demonstrates that the model still performs well. So, for the following tasks, let's keep it at 80% training and 20% testing.
+
+### HPC Usage Summary
+
+
+    CPU time :                                   573.86 sec.
+    Max Memory :                                 16499 MB
+    Average Memory :                             14254.12 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                29
+    Run time :                                   570 sec.
+    Turnaround time :                            570 sec.
+    
+### Confusion Matrix
+- 0 represents fake, and 1 represents real
+
+![](pics/rf7525_cm.png)
+
+### Classification Report
+
+                  precision    recall  f1-score   support
+
+            fake       0.87      0.82      0.85      1756
+            real       0.83      0.88      0.86      1740
+
+        accuracy                           0.85      3496
+       macro avg       0.85      0.85      0.85      3496
+    weighted avg       0.85      0.85      0.85      3496
+
+# Model Optimization
 
 # References
 1. Rossler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M. (2019). Faceforensics++: Learning to detect manipulated facial images. In *Proceedings of the IEEE/CVF International Conference on Computer Vision* (pp. 1-11).
