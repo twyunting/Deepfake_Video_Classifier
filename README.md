@@ -23,9 +23,13 @@ I use the Python script provided by the authors to download the whole data set f
 
 ![](report/pics/3-2.1.png)
 
+![](report/pics/3-3.11.png)
+
 ### Seven Different Facial Expressions from a Real Video
 
 ![](report/pics/3-2.2.png)
+
+![](report/pics/3-3.21.png)
 
 ## Facial Extraction using MTCNN
 
