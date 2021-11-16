@@ -42,9 +42,25 @@ I use the Python script provided by the authors to download the whole data set f
 
 ![](pics/3-2.2.png)
 
-## Ficial Extraction using MTCNN
+## Facial Extraction using MTCNN
 
-MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[3] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016.
+MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[3] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016. MTCNN is a good face detector that provides exactly pixel positions of precise nose, mouth, left eye, right eye, and face boundary. Thanks for the prior research, I can now simply install a `MTCNN` package to capture the facial features. 
+
+If we read one image, the MTCNN model returns three index: `box`, `confidence` and `keypoints`.
+
+- The bounding box is formatted as `[x, y, width, height]` under the key `box`.
+- The `confidence` is the probability for a bounding box to be matching a face.
+- The `keypoints` are formatted into a JSON object with the keys `left_eye`, `right_eye`, `nose`, `mouth_left`, `mouth_right`. Each `keypoint` is identified by a pixel position $(x, y)$.
+
+However, how do we deal with images in which the face shape is unclear? Based on this, I add one more condition to set `if confidence > 0.9` in the facial extraction function, which means that if MTCNN does not have 90 % confidence to identify an input image that includes a face, I will remove it because it is a "outlier". Finally, I capture 6984 out of 7000 facial images in the fake set, and capture 7000 out of 7000 facial images in the real set. The capture rate of Deepfake images is 99.77%, and the capture rate of original images is 100%. I also unify the image size to 320 x 320 x 3 using `PIL` package. In conclusion, now I have 13984 observations, which includes 6984 fake images and 7000 real images.
+
+### Fake Image Examples
+
+![](pics/3-3.1.png)
+
+### Real Image Examples
+
+![](pics/3-3.2.png)
 
 
 # References
