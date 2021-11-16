@@ -45,13 +45,13 @@ However, how do we deal with images in which the face shape is unclear? Based on
 
 ### Real Image Examples
 
-![](report/report/pics/3-3.2.png)
+![](report/pics/3-3.2.png)
 
 ### Data Generating Process
 
 ![](report/pics/3-3.3.png)
 
-## Construct $X$ Features and $y$ Labels
+## Construct X Features and y Labels
 
 My task for this session is to save each image as a one-dimensional array. The images are three-dimensional in nature. I need to change the dimensions from 320 x 320 x 3 to 307200 x 1. `numpy.ndarray.flatten` is an excellent way to deal with it. This is supervised learning, so I have 13984 one-dimensional arrays that I label "fake" or "real" for each array in order to tell models the ground truth for each observation.
 
