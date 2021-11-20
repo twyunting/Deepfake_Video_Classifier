@@ -273,6 +273,58 @@ If I just slightly split data to 75% traing and 25% testing. The data below demo
     weighted avg       0.85      0.85      0.85      3496
 
 # Model Optimization
+- 80 % training, 20 % testing
+- Grid search for number of trees: $[100, 500, 100, 2000]$
+- 5-fold cross validation and bootstrap
+
+## Model Parameters
+- Source code: [`10.final_rf_model.py`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/10.final_rf_model.py)
+
+        Best Model: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+                               max_depth=None, max_features='auto', max_leaf_nodes=None,
+                               min_impurity_decrease=0.0, min_impurity_split=None,
+                               min_samples_leaf=1, min_samples_split=2,
+                               min_weight_fraction_leaf=0.0, n_estimators=2000,
+                               n_jobs=None, oob_score=False, random_state=42, verbose=0,
+                               warm_start=False)
+        
+                       
+# Confusion Matrix
+- 0 represents fake, and 1 represents real
+- Accuracy score: 0.8677154093671792
+
+After training and optimizing the model, I predict the remaining 20% testing set to see if the model performs well. 
+
+The confusion matrix appears to be very good, especially the model can excellent classify the fake videos. 
+
+![](report/pics/best_cm.png)
+
+# Classification Report 
+
+                  precision    recall  f1-score   support
+
+            fake       0.91      0.82      0.86      1415
+            real       0.83      0.92      0.87      1382
+
+        accuracy                           0.87      2797
+       macro avg       0.87      0.87      0.87      2797
+    weighted avg       0.87      0.87      0.87      2797
+
+
+# Improvement
+
+The training videos are diverse, with people of different sexes, ages, and races. I believe the model can be directly applied to reality, assisting people to identify Deepfake videos. However, there are a few things I would change about the experiments if I have more time: 
+
+## Require more HPC resources
+
+So far, I use `@zorro.american.edu` to implement the experiment. If I submit my code to run on HPC for more than two days, the submission would be automatically canceled. Because of the limited computation time, I only set the number cross validation fold to 5 and also decrease the length in grid search in order to finish the experiment and still keep the good outcome.
+
+## Deep Learning Task
+
+If at all possible, I would construct a neural network architecture and include some activation functions in the hidden layers to discover more underlying relationships in the data. It would also be ideal if I had more time to use grid search to determine the optimal number of epochs and batch size.
+
+# License
+The academic project is licensed under a [MIT license](https://opensource.org/licenses/MIT) from Yunting Chiu.
 
 # References
 1. Rossler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., & Nießner, M. (2019). Faceforensics++: Learning to detect manipulated facial images. In *Proceedings of the IEEE/CVF International Conference on Computer Vision* (pp. 1-11).
