@@ -273,8 +273,9 @@ If I just slightly split data to 75% traing and 25% testing. The data below demo
     weighted avg       0.85      0.85      0.85      3496
 
 # Model Optimization
+## Grid Search and Cross-Validation
 - 80 % training, 20 % testing
-- Grid search for number of trees: $[100, 500, 100, 2000]$
+- Grid search for number of trees: [100, 500, 100, 2000].
 - 5-fold cross validation and bootstrap
 
 ## Model Parameters
