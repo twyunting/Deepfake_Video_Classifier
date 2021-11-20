@@ -1,4 +1,4 @@
-# High Performance DeepFake Video Classifier (87% accuracy)
+# High Performance DeepFake Video Classifier (87% acc)
 
 # Abstract
 
