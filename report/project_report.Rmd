@@ -328,7 +328,7 @@ The confusion matrix appears to be very good, especially the model can excellent
     weighted avg       0.87      0.87      0.87      2797
 
 
-# Improvement
+# Improvements
 
 The training videos are diverse, with people of different sexes, ages, and races. I believe the model can be directly applied to reality, assisting people to identify Deepfake videos. However, there are a few things I would change about the experiments if I have more time: 
 
