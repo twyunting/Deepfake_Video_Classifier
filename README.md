@@ -57,7 +57,7 @@ However, how do we deal with images in which the face shape is unclear? Based on
 
 ## Construct X Features and y Labels
 
-My task for this session is to save each image as a one-dimensional array. The images are three-dimensional in nature. I need to change the dimensions from 320 x 320 x 3 to 307200 x 1. `numpy.ndarray.flatten` is an excellent way to deal with it. This is supervised learning, so I have 13984 one-dimensional arrays that I label "fake" or "real" for each array in order to tell models the ground truth for each observation.
+My task for this session is to save each image as a one-dimensional array. The images are three-dimensional in nature. I need to change the dimensions from 320 x 320 x 3 to 1 x 307200. `numpy.ndarray.flatten` is an excellent way to deal with it. This is supervised learning, so I have 13984 one-dimensional arrays that I label "fake" or "real" for each array in order to tell models the ground truth for each observation.
 
 What does the data looks like? In short, the data has 307201 variables (307200$X$ features + 1$y$ label), and the number of observations is 13984, with 6984 fake arrays and 7000 real arrays. Please see [`03.construct_Xfeatures_ylabels.ipynb`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/03.construct_Xfeatures_ylabels.ipynb) for the source code.
 
