@@ -1,4 +1,4 @@
-# High Performance DeepFake Video Classifier (87% acc)
+# High Performance DeepFake Video Classifier
 ### Help people to identify Deepfake videos with 87 % accuracy
 # Abstract
 
