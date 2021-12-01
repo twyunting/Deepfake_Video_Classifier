@@ -83,9 +83,12 @@ rf_clf = RandomForestClassifier(random_state=42, bootstrap=True)
 # define search space
 # n_estimators: The number of trees in the forest.
 space = {}
-#space['n_estimators'] = list(range(1, 10000, 500))
-space['min_weight_fraction_leaf'] = [0, 100, 500, 1000, 2000]
-space['max_leaf_nodes'] = [0, 100, 500, 1000, 2000]
+space['n_estimators'] = [100, 500, 1000, 2000]
+space['max_depth'] = [0, 100, 500, 1000, 2000, None]
+space['max_features'] = ['auto', 'sqrt']
+space['min_samples_leaf'] = [100, 500, 1000]
+space['min_samples_split'] = [100, 500, 1000]
+
 
 # define search
 search = GridSearchCV(rf_clf, space, scoring='accuracy', n_jobs=1, cv=cv_inner)

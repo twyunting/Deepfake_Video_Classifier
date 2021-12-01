@@ -20,6 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
   Videos may fool people nowadays and they are causing trouble. This is due to a technology called DeepFake. Deepfake is a technique that makes computer-created artificial videos in which images are combined to create new footage. Recently, Deefake technique has been widely discussed in Taiwan since a famous Taiwanese YouTuber was discovered to be responsible for producing, selling, and circulating Deepfake videos of women, mostly public figures. Based on this, techniques for solving this kind of problem have been in high demand because more and more relevant issues about misuse of Deepfake technique will be extensively expanded in the future. I have relevant experience in building a machine learning model to determine whether the input video is fake or real. Moreover, I am working on a computer vision project that analyzes deepfake videos as part of my Advanced Machine Learning class project. As a result, I feel the need to apply my pertinent academic background to this project so that this model can solve some problems in reality. **The main goal of the project is to assist people in determining whether a given video was generated using the Deepfake technique or a real video by using the DeepFake Video Classifier Model that I created.**
 
+# Related Works
+## Deepfake Representation with Multilinear Regression
+- According to the relevant academic work, Abdali et al.[2] did the similar Deepfake video classification model using FaceForensics++ dataset. They use SVM classification to complete the task, and the outcome is around 82 % accuracy.
+
+## Protecting World Leaders Against Deep Fakes
+- Agarwal et al.[3] employ the OpenFace2 toolkit to classify various facial features such as the mouth, nose, and lip. The partial accuracy is over 90%.
+
 # Dataset
 
   [FaceForensics++](https://arxiv.org/abs/1901.08971)[1] is a popular and widely used database for detecting image or video forgeries. FaceForensics++ is a forensics dataset consisting of 1000 original YouTube videos that have been manipulated with four automated face manipulation methods: Deepfakes, Face2Face, FaceSwap and NeuralTextures. In this project, I experiment on `Deepfakes` subset for fake videos, and I also download original videos from the same source that the authors use to create fake videos for real videos. Both can be found from [FaceForensics GitHub](https://github.com/ondyari/FaceForensics). The videos have a wide range of facial expressions because they are about TV reporters and journalists of various sexes, ages, and races.
@@ -33,19 +40,19 @@ I use the Python script provided by the authors to download the whole data set f
 
 ## Extract Video Frames and Save to Images
 
-  According to the relevant academic work, Abdali et al.[2] did the similar Deepfake classification model using FaceForensics++. Since all videos have constant frame rate 30 fps, they extract up to 7 frames from each video and save them as images, so I use the same method based on the author's idea. To be more specific, I extract 1 frame in every 30 frames totally extract 7 images in one video. In this case, I can capture different facial expressions in a single video. Now I have 1000 Deepfake videos and 1000 original videos. After executing the code, I have 14000 images (observations), which includes 7000 "fake" images and 7000 "real" images. I mainly use `cv2` and `imageio` to capture features form the given videos. Please see [`01.capture_videos_to_images.ipynb`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/01.capture_videos_to_images.ipynb) for the source code. 
+   Since all videos have constant frame rate 30 fps, they extract up to 7 frames from each video and save them as images, so I use the same method based on the author's idea. To be more specific, I extract 1 frame in every 30 frames totally extract 7 images in one video. In this case, I can capture different facial expressions in a single video. Now I have 1000 Deepfake videos and 1000 original videos. After executing the code, I have 14000 images (observations), which includes 7000 "fake" images and 7000 "real" images. I mainly use `cv2` and `imageio` to capture features form the given videos. Please see [`01.capture_videos_to_images.ipynb`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/01.capture_videos_to_images.ipynb) for the source code. 
 
 ### Seven Different Facial Expressions from a Fake Video
 
-![](pics/3-2.1.png)
+![](pics/3-2.1.png){width=350px}
 
 ### Seven Different Facial Expressions from a Real Video
 
-![](pics/3-2.2.png)
+![](pics/3-2.2.png){width=350px}
 
 ## Facial Extraction using MTCNN
 
-MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[3] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016. MTCNN is a good face detector that provides exactly pixel positions of precise nose, mouth, left eye, right eye, and face boundary. Thanks for the prior research, I can now simply install a `MTCNN` package to capture the facial features. 
+MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[4] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016. MTCNN is a good face detector that provides exactly pixel positions of precise nose, mouth, left eye, right eye, and face boundary. Thanks for the prior research, I can now simply install a `MTCNN` package to capture the facial features. 
 
 If we read one image, the MTCNN model returns three index: `box`, `confidence` and `keypoints`.
 
@@ -57,15 +64,13 @@ However, how do we deal with images in which the face shape is unclear? Based on
 
 ### Fake Image Examples
 
-![](pics/3-3.1.png)
-
-![](pics/3-3.11.png)
+![](pics/3-3.1.png){width=250px} ![](pics/3-3.11.png){width=250px}
 
 ### Real Image Examples
 
-![](pics/3-3.2.png)
+![](pics/3-3.2.png){width=250px} ![](pics/3-3.21.png){width=250px}
 
-![](pics/3-3.21.png)
+
 
 ### Data Generating Process
 
@@ -109,7 +114,7 @@ I use HPC to run all Python script files through [`@zorro.american.edu`](https:/
 
 There are 13984 observations, which include 6984 fake rows and 7000 real rows.
 
-![](pics/5-1.png)
+![](pics/5-1.png){width=250px}
 
 ## SVM (80% Training & 20 % Testing, C = 1)
 - Accuracy Score: 0.85305684662138
@@ -133,7 +138,7 @@ The accuracy score is 85.31%, which is great. Running the code, on the other han
 ### Confusion Matrix
 - 0 represents fake, and 1 represents real
 
-![](pics/svm1_cm.png)
+![](pics/svm1_cm.png){width=250px}
 
 ### Classification Report
 
@@ -169,7 +174,7 @@ In Python's sklearn module, the regularization parameter (also known as the $C$ 
 ### Confusion Matrix
 - 0 represents fake, and 1 represents real
 
-![](pics/svm0.01_cm.png)
+![](pics/svm0.01_cm.png){width=250px}
 
 ### Classification Report
 
@@ -204,7 +209,7 @@ The computation time is terrible if logistic regression deal with a larger numbe
 ### Confusion Matrix
 - 0 represents fake, and 1 represents real
 
-![](pics/logr_cm.png)
+![](pics/logr_cm.png){width=250px}
 
 ### Classification Report
 
@@ -239,7 +244,7 @@ Wow! Random forest model provides 85.63% accuracy, and it just takes 10 minutes 
 ### Confusion Matrix
 - 0 represents fake, and 1 represents real
 
-![](pics/rf8020_cm.png)
+![](pics/rf8020_cm.png){width=250px}
 
 ### Classification Report
 
@@ -275,7 +280,7 @@ If I just slightly split data to 75% traing and 25% testing. The data below demo
 ### Confusion Matrix
 - 0 represents fake, and 1 represents real
 
-![](pics/rf7525_cm.png)
+![](pics/rf7525_cm.png){width=250px}
 
 ### Classification Report
 
@@ -314,7 +319,7 @@ After training and optimizing the model, I predict the remaining 20% testing set
 
 The confusion matrix appears to be very good, especially the model can excellent classify the fake videos. 
 
-![](pics/best_cm.png)
+![](pics/best_cm.png){width=250px}
 
 # Classification Report 
 
@@ -328,7 +333,7 @@ The confusion matrix appears to be very good, especially the model can excellent
     weighted avg       0.87      0.87      0.87      2797
 
 
-# Improvements
+# Improvements and Further Works
 
 The training videos are diverse, with people of different sexes, ages, and races. I believe the model can be directly applied to reality, assisting people to identify Deepfake videos. However, there are a few things I would change about the experiments if I have more time: 
 
@@ -336,7 +341,7 @@ The training videos are diverse, with people of different sexes, ages, and races
 
 So far, I use `@zorro.american.edu` to implement the experiment. If I submit my code to run on HPC for more than two days, the submission would be automatically canceled. Because of the limited computation time, I only set the number cross validation fold to 5 and also decrease the length in grid search in order to finish the experiment and still keep the good outcome.
 
-## Deep Learning Task
+## Deep Learning Tasks
 
 If at all possible, I would construct a neural network architecture and include some activation functions in the hidden layers to discover more underlying relationships in the data. It would also be ideal if I had more time to use grid search to determine the optimal number of epochs and batch size.
 
@@ -348,4 +353,6 @@ The academic project is licensed under a [MIT license](https://opensource.org/li
 
 2. Abdali, S., Vasilescu, M. A. O., & Papalexakis, E. E. (2021). Deepfake Representation with Multilinear Regression. *arXiv preprint arXiv:2108.06702*.
 
-3. Zhang, K., Zhang, Z., Li, Z., & Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. *IEEE Signal Processing Letters, 23*(10), 1499-1503.
+3. Agarwal, S., Farid, H., Gu, Y., He, M., Nagano, K., & Li, H. (2019, June). Protecting World Leaders Against Deep Fakes. In *CVPR workshops (Vol. 1)*.
+
+4. Zhang, K., Zhang, Z., Li, Z., & Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. *IEEE Signal Processing Letters, 23*(10), 1499-1503.

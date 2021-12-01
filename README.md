@@ -3,6 +3,14 @@
 # Abstract
 
   Videos may fool people nowadays and they are causing trouble. This is due to a technology called DeepFake. Deepfake is a technique that makes computer-created artificial videos in which images are combined to create new footage. Recently, Deefake technique has been widely discussed in Taiwan since a famous Taiwanese YouTuber was discovered to be responsible for producing, selling, and circulating Deepfake videos of women, mostly public figures. Based on this, techniques for solving this kind of problem have been in high demand because more and more relevant issues about misuse of Deepfake technique will be extensively expanded in the future. I have relevant experience in building a machine learning model to determine whether the input video is fake or real. Moreover, I am working on a computer vision project that analyzes deepfake videos as part of my Advanced Machine Learning class project. As a result, I feel the need to apply my pertinent academic background to this project so that this model can solve some problems in reality. **The main goal of the project is to assist people in determining whether a given video was generated using the Deepfake technique or a real video by using the DeepFake Video Classifier Model that I created.**
+  
+# Related Works
+## Deepfake Representation with Multilinear Regression
+- According to the relevant academic work, Abdali et al.[2] did the similar Deepfake video classification model using FaceForensics++ dataset. They use SVM classification to complete the task, and the outcome is around 82 % accuracy.
+
+## Protecting World Leaders Against Deep Fakes
+- Agarwal et al.[3] employ the OpenFace2 toolkit to classify various facial features such as the mouth, nose, and lip. The partial accuracy is over 90%.
+
 
 # Dataset
 
@@ -17,7 +25,7 @@ I use the Python script provided by the authors to download the whole data set f
 
 ## Extract Video Frames and Save to Images
 
-  According to the relevant academic work, Abdali et al.[2] did the similar Deepfake classification model using FaceForensics++. Since all videos have constant frame rate 30 fps, they extract up to 7 frames from each video and save them as images, so I use the same method based on the author's idea. To be more specific, I extract 1 frame in every 30 frames totally extract 7 images in one video. In this case, I can capture different facial expressions in a single video. Now I have 1000 Deepfake videos and 1000 original videos. After executing the code, I have 14000 images (observations), which includes 7000 "fake" images and 7000 "real" images. I mainly use `cv2` and `imageio` to capture features form the given videos. Please see [`01.capture_videos_to_images.ipynb`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/01.capture_videos_to_images.ipynb) for the source code. 
+  Since all videos have constant frame rate 30 fps, they extract up to 7 frames from each video and save them as images, so I use the same method based on the author's idea. To be more specific, I extract 1 frame in every 30 frames totally extract 7 images in one video. In this case, I can capture different facial expressions in a single video. Now I have 1000 Deepfake videos and 1000 original videos. After executing the code, I have 14000 images (observations), which includes 7000 "fake" images and 7000 "real" images. I mainly use `cv2` and `imageio` to capture features form the given videos. Please see [`01.capture_videos_to_images.ipynb`](https://github.com/twyunting/Deepfake_Video_Classifier/blob/main/code/01.capture_videos_to_images.ipynb) for the source code. 
 
 ### Seven Different Facial Expressions from a Fake Video
 
@@ -29,7 +37,7 @@ I use the Python script provided by the authors to download the whole data set f
 
 ## Facial Extraction using MTCNN
 
-MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[3] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016. MTCNN is a good face detector that provides exactly pixel positions of precise nose, mouth, left eye, right eye, and face boundary. Thanks for the prior research, I can now simply install a `MTCNN` package to capture the facial features. 
+MTCNN (Multi-Task Cascaded Convolutional Neural Networks)[4] is a type of neural network that recognizes faces and facial landmarks in images. It was published by Zhang et al. in 2016. MTCNN is a good face detector that provides exactly pixel positions of precise nose, mouth, left eye, right eye, and face boundary. Thanks for the prior research, I can now simply install a `MTCNN` package to capture the facial features. 
 
 If we read one image, the MTCNN model returns three index: `box`, `confidence` and `keypoints`.
 
@@ -332,4 +340,6 @@ The academic project is licensed under a [MIT license](https://opensource.org/li
 
 2. Abdali, S., Vasilescu, M. A. O., & Papalexakis, E. E. (2021). Deepfake Representation with Multilinear Regression. *arXiv preprint arXiv:2108.06702*.
 
-3. Zhang, K., Zhang, Z., Li, Z., & Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. *IEEE Signal Processing Letters, 23*(10), 1499-1503.
+3. Agarwal, S., Farid, H., Gu, Y., He, M., Nagano, K., & Li, H. (2019, June). Protecting World Leaders Against Deep Fakes. In *CVPR workshops (Vol. 1)*.
+
+4. Zhang, K., Zhang, Z., Li, Z., & Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. *IEEE Signal Processing Letters, 23*(10), 1499-1503.
