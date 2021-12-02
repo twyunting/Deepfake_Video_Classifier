@@ -85,7 +85,6 @@ rf_clf = RandomForestClassifier(random_state=42, bootstrap=True)
 space = {}
 space['n_estimators'] = [100, 500, 1000, 2000]
 space['max_depth'] = [0, 100, 500, 1000, 2000, None]
-space['max_features'] = ['auto', 'sqrt']
 space['min_samples_leaf'] = [100, 500, 1000]
 space['min_samples_split'] = [100, 500, 1000]
 
