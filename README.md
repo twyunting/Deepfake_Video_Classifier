@@ -328,7 +328,7 @@ The training videos are diverse, with people of different sexes, ages, and races
 
 So far, I use `@zorro.american.edu` to implement the experiment. If I submit my code to run on HPC for more than two days, the submission would be automatically canceled. Because of the limited computation time, I only set the number cross validation fold to 5 and also decrease the length in grid search in order to finish the experiment and still keep the good outcome.
 
-## Deep Learning Task
+## Deep Learning Tasks
 
 If at all possible, I would construct a neural network architecture and include some activation functions in the hidden layers to discover more underlying relationships in the data. It would also be ideal if I had more time to use grid search to determine the optimal number of epochs and batch size.
 
